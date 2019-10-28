@@ -7,8 +7,24 @@ from test_framework.test_utils import enable_executor_hook
 
 
 def even_odd(A):
-    # TODO - you fill in here.
-    return
+    '''
+    Iterating from both ends even - unclassified - odds
+    swapping from both ends if the pointer is pointing to
+    wrong classification
+    '''
+    left = 0
+    right = len(A) - 1
+    while left < right:
+        if A[left] % 2 == 0:
+            left += 1
+            continue
+        if A[right] % 2 == 1:
+            right -= 1
+            continue
+        A[left], A[right] = A[right], A[left]
+        left += 1
+        right -= 1
+    return A
 
 
 @enable_executor_hook
